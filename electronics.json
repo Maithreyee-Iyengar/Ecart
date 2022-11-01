@@ -1,0 +1,36 @@
+[
+    {
+        "id":"1",
+        "name": "Nikon Camera",
+        "price": 15499,
+        "rating": "4",
+        "image": "Images/Electronics/camera.png",
+        "category": "electronics"
+    },
+    {
+        "id":"2",
+
+        "name": "Daikin AC 1.5 ton 5 star inverter",
+        "price": 43500,
+        "rating": "2",
+        "image": "Images/Electronics/ac.png",
+        "category": "electronics"
+    },
+    {
+        "id":"3",
+
+        "name": "Iphone 6s",
+        "price": 46699,
+        "rating": "2",
+        "image": "Images/Electronics/iphone.png",
+        "category": "electronics"
+    },
+    {
+        "id":"5",
+        "name": "Boat Headphones - Wired",
+        "price": 3499,
+        "rating": "4",
+        "image": "Images/Electronics/headphone.png",
+        "category": "electronics"
+    }
+]

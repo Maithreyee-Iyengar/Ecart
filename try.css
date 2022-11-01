@@ -1,0 +1,190 @@
+span
+{
+color:white;
+background-color:black;
+font-size: 30pt;
+font-style: italic;
+font-weight: bold;
+}
+label{
+  color: white;
+  font-size: 30px;
+  display: inline-block;
+}
+#myButton1,#myButton2{
+    
+
+}
+input{
+  background-color: rgb(165,42,42);
+  width: 250px;
+  height: 40px;
+  font-size: 30px;
+  text-align: left;
+  color: white;
+  border-top: white;
+  border-left: white;
+  border-right: white;
+  box-shadow: 10px 3px 5px rgb(0, 0, 0);
+  padding: 5px 5px 20px 20px;
+  border-bottom-left-radius: 20px;
+  font-family: 'Tangerine', cursive;
+ 
+
+  
+}
+input:hover{
+  background-color:rgb(190, 70, 70) ;
+}
+hr{
+  width: 150px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-top: white;
+  margin-right: 80px;
+}
+
+::-ms-value{
+  color: #fff;
+}
+#myButton1{
+ 
+}
+
+form{
+  width:270px;
+  box-shadow: 10px 3px 5px rgb(0, 0, 0);
+    margin-left: 200px;
+    height: 150px;
+    margin-top: 20px;
+    text-align: right;
+    border-bottom-left-radius: 20px;
+}
+
+body{
+background-image: url(pexels-pixabay-162688.jpg);
+background-size: cover;
+background-position:center;
+box-sizing: border-box;
+
+ 
+}
+.menu-bar
+{
+background: rgb(165,42,42);
+text-align: center;
+}
+
+.menu-bar ul 
+{
+display: inline-flex;
+list-style: none;
+color: #fff;
+}
+.menu-bar ul li
+{
+
+width: 120px;
+margin: 10x;
+padding: 15px;
+}
+.menu-bar ul li a
+{
+text-decoration: none;
+color: #fff;
+}
+
+
+.active, .menu-bar ul li:hover
+{
+background: #000000;
+border-radius: 3px;
+}
+
+.menu-bar .fa
+{
+margin-right: 8px;
+}
+
+.sub-menu-1
+{
+display: none;
+}
+
+.menu-bar ul li:hover .sub-menu-1
+{
+display: block;
+position: absolute;
+background: rgb(165,42,42);
+margin-top: 15px;
+margin-left: -15px;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul
+{
+display: block;
+margin: 10px;
+
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li
+{
+width: 150px;
+height: 20px;
+padding: 7px;
+border-bottom: 1px solid #fff;
+background: transparent;
+border-radius: 0;
+text-align: left;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child
+{
+border-bottom: none;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li a:hover
+{
+color: #000000;
+}
+.button{
+    text-align: center;
+    width: 300px;
+    margin-top: 12%;
+    margin-left: 790px;
+   
+}
+.btn {
+  background: #d10808;
+  background-image: -webkit-linear-gradient(top, #d10808, #041017);
+  background-image: -moz-linear-gradient(top, #d10808, #041017);
+  background-image: -ms-linear-gradient(top, #d10808, #041017);
+  background-image: -o-linear-gradient(top, #d10808, #041017);
+  background-image: linear-gradient(to bottom, #d10808, #041017);
+  font-family: sans-serif;
+  box-shadow: 10px 3px 5px rgb(71, 66, 66);
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.btn:hover {
+  background: #ff0000;
+  background-image: -webkit-linear-gradient(top, #ff0000, #3f6985);
+  background-image: -moz-linear-gradient(top, #ff0000, #3f6985);
+  background-image: -ms-linear-gradient(top, #ff0000, #3f6985);
+  background-image: -o-linear-gradient(top, #ff0000, #3f6985);
+  background-image: linear-gradient(to bottom, #ff0000, #3f6985);
+  text-decoration: none;
+}
+
+
+
+
+
+
+
+
+

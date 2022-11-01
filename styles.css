@@ -1,0 +1,389 @@
+
+.nav-bar{
+background-color: #F2CF51;
+padding: 5px;
+position: absolute;
+width: 98%;
+
+height: 5%;
+
+}
+.checked {
+    color: orange;
+  }
+#btn2 {
+border: 0px;
+background-color: #F2CF51;
+color: #38959B;
+padding-top: 10px;
+position: absolute;
+right: 70px;
+margin-top: 5px;
+cursor: pointer;
+}
+
+
+#profile{
+height:30px ;
+width:30px ;
+position: absolute;
+right: 20px ;
+padding-top: 5px ;
+padding-right: 5px ;
+top:10px;
+cursor: pointer;
+}
+#search{
+border-style: none;
+border-bottom-style: solid;
+border-color: #38959B;
+background-color: #F2CF51;
+position: absolute;
+left: 20%;
+margin-top: 10px;
+width: 250px;
+height: 25px;
+
+
+}
+
+#search:focus{
+outline: none;
+}
+#list-items a {  
+display: block;  
+border-style: solid;
+border-color: #38959B;
+color: #38959B;
+background-color: #ffffff;
+
+text-decoration: none;  
+padding: 10px;  
+}
+#list-items {  
+display: none;  
+position: relative; 
+left: 0px;
+top: 5px; 
+left: 44px;
+margin-bottom: 75px;
+
+/* min-width: 185px;  */
+
+}  
+.dropdown {  
+position: relative;  
+display: inline-block;  
+}  
+
+ul{
+list-style: none;
+text-align: center;
+position: relative;
+left: -45px;
+
+}
+ul:hover{
+background-color: #F2CF51; 
+}
+.head{
+background-color: #38959B;
+color:white ;
+margin-top: 10px;
+text-align: center;
+padding: 5px;
+height: 40px;
+font-weight: bolder;
+
+}
+li{
+margin-bottom: 3px;
+}
+
+
+.container{
+width: 75%;
+border: 2px  solid black;
+position: absolute;
+top: 85px;
+left: 200px;
+
+box-shadow: 4px 4px  #38959B;
+border-radius: 5px;
+}
+.product{
+display: flex;
+margin-bottom: 5px;
+align-items: center;
+cursor: pointer;
+width: 70%;
+}
+.product img{
+margin: 15px;
+border-radius: 5px;
+
+}
+
+.productList{
+display: flex;
+flex-direction: column;
+}
+.product:hover{
+background-color: aliceblue;
+}
+
+
+
+
+/* OTHER CSS */
+* {
+box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+font-family: Arial, Helvetica, sans-serif;
+margin: 0;
+}
+
+/* Header/logo Title */
+
+
+/* Sticky navbar - toggles between relative and fixed, depending on the scroll position. It is positioned relative until a given offset position is met in the viewport - then it "sticks" in place (like position:fixed). The sticky value is not supported in IE or Edge 15 and earlier versions. However, for these versions the navbar will inherit default position */
+.navbar {
+overflow: hidden;
+background-color: #F2CF51;
+position: sticky;
+position: -webkit-sticky;
+top: 0;
+}
+
+/* Style the navigation bar links */
+.navbar a#categories {
+float: left;
+display: block;
+color: #38959B;
+text-align: center;
+padding: 14px 20px;
+text-decoration: none;
+cursor:pointer;
+}
+
+
+/* Right-aligned link */
+.navbar a.right {
+float: right;
+}
+
+/* Change color on hover */
+.navbar a:hover {
+background-color: #ddd;
+color: black;
+}
+
+/* Active/current link */
+/* .navbar a.active {
+background-color: rgb(255, 255, 255);
+color: #38959B;
+} */
+
+/* Column container */
+.row {  
+display: -ms-flexbox; /* IE10 */
+display: flex;
+-ms-flex-wrap: wrap; /* IE10 */
+flex-wrap: wrap;
+height: 635px;
+}
+
+/* Create two unequal columns that sits next to each other */
+/* Sidebar/left column */
+.side {
+-ms-flex: 30%; /* IE10 */
+flex: 30%;
+background-color: #f1f1f1;
+padding: 20px;
+height: 640px;
+margin-top: 15px;
+}
+
+/* Main column */
+.main {   
+
+flex: 70%;
+flex-direction: column;
+background-color: white;
+padding: 20px;
+
+}
+
+/* Fake image, just for this example */
+.fakeimg2 {
+background-color: #aaa;
+width: 100%;
+padding: 20px;
+}
+h3{
+color: #ffffff;
+text-align: center;
+background-color:#38959B;
+width: 100px;
+margin-bottom: 5px;
+}
+.fakeimg{
+height: 60px;
+color: #38959B;
+background-color: #ffffff;
+border: 1px solid black;
+width: 100%;
+padding: 20px;
+
+}
+.fakeimg input{
+width: 70px;
+margin-left: 5px;
+}
+.fakeimg input:focus{
+outline: #38959B;
+}
+h2,h4,h5{
+margin-top: 5px;
+margin-bottom: 5px;
+}
+h5{
+margin-bottom: 10px;
+}
+.productDetails >  span > button{
+border-radius: 0px;
+background-color: #38959B;
+color: #ffffff;
+border: 1px solid black;
+height: 30px;
+width: 120px;
+cursor: pointer;
+}
+.productDetails >span> button:hover{
+background-color: #F2CF51;
+color:#38959B;
+font-weight: bolder;
+
+}
+.pagination {
+display: inline-block;
+text-align: center;
+}
+
+.pagination a {
+color: #38959B;
+font-weight: bold;
+position: relative;
+left: 500px;
+padding: 8px 16px;
+text-decoration: none;
+text-align: center;
+}
+.footer{
+text-decoration: none;
+text-align: left;
+color: #38959B;
+background-color: #F2CF51;
+margin-top: 0;
+padding: 20px;
+/* text-align: center; */
+
+}
+#inc{
+width: 25px;
+outline: none;
+background-color: #F2CF51;
+border: #F2CF51 solid;
+color: #38959B;
+font-weight: bolder;
+text-align: center;
+}
+.fa:hover{
+color: #F2CF51;
+
+}
+.checked{
+color: #F2CF51;
+}
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+.row {   
+flex-direction: column;
+}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+.navbar a {
+float: none;
+width: 100%;
+}
+}
+
+/* RATINGS */
+*{
+margin: 0;
+padding: 0;
+}
+.rate {
+height: 46px;
+
+}
+.rate:not(:checked) > input {
+position:absolute;
+top:-9999px;
+}
+.rate:not(:checked) > label {
+float:left;
+width:1em;
+overflow:hidden;
+white-space:nowrap;
+cursor:pointer;
+font-size:30px;
+color:#ccc;
+}
+.rate:not(:checked) > label:before {
+content: '★ ';
+}
+.rate > input:checked ~ label {
+color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+color: #c59b08;
+}
+
+img{
+height:100px ;
+width:100px ;
+}
+#searchImg {
+position: absolute;
+left: 38%;
+margin-top: 7px;
+border-style:solid;
+border-color: #38959B;
+cursor: pointer;
+width: 28px;
+height: 28px;
+
+}
+.view{
+margin-left: 10px ;
+display: inline-block;
+}
+/* Modified from: https://github.com/mukulkant/Star-rating-using-pure-css */
+        
+
+    
+        
