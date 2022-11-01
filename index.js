@@ -4,11 +4,44 @@ function profile() {
   //alert("Hello !");
   location.href = "profile.html";
 }
-function viewProduct() {
+function viewProduct(id,category) {
   //alert("Hello !");
-  location.href = "viewproduct.html";
+  console.log(category + " ")
+  location.href = "viewproduct.html?id=" + id + "&category=" + category;
 }
 
+function fetchParams ()
+          {
+            let url = new URL(window.location.href);
+            let searchParams = new URLSearchParams(url.search);
+            console.log(searchParams.get('category')); 
+            id = searchParams.get('id');
+            cat = searchParams.get('category');
+
+            fetch(`./${cat}.json`) 
+            .then((result) => {
+              return result.json();
+            }).then((data)=>{
+              //console.log(data)
+              console.log(data[id-1]);
+              document.getElementById("name").innerHTML = data[id-1].name;
+              document.getElementById("rating").innerHTML = data[id-1].rating;
+              document.getElementById("price").innerHTML = data[id-1].price;
+              document.getElementById("image").setAttribute("src",data[id-1].image);
+              document.getElementById("image").setAttribute("alt",data[id-1].name);
+
+
+
+            })
+            
+            
+
+          }
+
+function checked (val,catType,id) {
+    //location.reload();
+
+}
 // var list = document.querySelector('.rate');
 // list.addEventListener('click', function(ev) {
 //   if (ev.target.tagName === 'SPAN') {
@@ -53,20 +86,20 @@ function getProductsList() {
               <h2>${item.name}</h2>
               <h4>Rs ${item.price}</h4>
               <div class="rate">
-              <span onclick ="checked()" id="1.1" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star"></span>
-              <span onclick ="checked()"class="fa fa-star"></span>
+              <span onclick ="checked(1,'product',${item.id})" id="1.1" class="fa fa-star ${item.rating>=1 ? "checked" :""}"></span>
+              <span onclick ="checked(2,'product',${item.id})" class="fa fa-star ${item.rating>=2 ? "checked" :""}"></span>
+              <span onclick ="checked(3,'product',${item.id})" class="fa fa-star ${item.rating>=3 ? "checked" :""}"></span>
+              <span onclick ="checked(4,'product',${item.id})" class="fa fa-star ${item.rating>=4 ? "checked" :""}"></span>
+              <span onclick ="checked(5,'product',${item.id})"class="fa fa-star ${item.rating>=5 ? "checked" :""}"></span>
                 </div> 
     
-                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct()">View Product</button></span>
+                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct(${item.id},'product')">View Product</button></span>
     
     
           </div>
           
       </div>`;
-        });
+        }).join('');
     });
 }
 
@@ -85,20 +118,20 @@ function getMensList() {
               <h2>${item.name}</h2>
               <h4>Rs ${item.price}</h4>
               <div class="rate">
-              <span onclick ="checked()" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star "></span>
-              <span onclick ="checked()" class="fa fa-star"></span>
-              <span onclick ="checked()"class="fa fa-star"></span>
+              <span onclick ="checked()" class="fa fa-star ${item.rating>=1 ? "checked" :""}"></span>
+              <span onclick ="checked()" class="fa fa-star ${item.rating>=2 ? "checked" :""}"></span>
+              <span onclick ="checked()" class="fa fa-star ${item.rating>=3 ? "checked" :""}"></span>
+              <span onclick ="checked()" class="fa fa-star ${item.rating>=4 ? "checked" :""}"></span>
+              <span onclick ="checked()"class="fa fa-star ${item.rating>=5 ? "checked" :""}"></span>
                 </div> 
     
-                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct()">View Product</button></span>
+                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct(${item.id},'mens')">View Product</button></span>
     
     
           </div>
           
       </div>`;
-        });
+        }).join('');
     });
 }
 
@@ -117,20 +150,20 @@ function getWomensList() {
               <h2>${item.name}</h2>
               <h4>Rs ${item.price}</h4>
               <div class="rate">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span class="fa fa-star  ${item.rating>=1 ? "checked" :""}"></span>
+              <span class="fa fa-star  ${item.rating>=2 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=3 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=4 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=5 ? "checked" :""}"></span>
                 </div> 
     
-                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct()">View Product</button></span>
+                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct(${item.id},'womens')">View Product</button></span>
     
     
           </div>
           
       </div>`;
-        });
+        }).join('');
     });
 }
 
@@ -149,20 +182,20 @@ function getFootwearList() {
               <h2>${item.name}</h2>
               <h4>Rs ${item.price}</h4>
               <div class="rate">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span class="fa fa-star ${item.rating>=1 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=2 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=3 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=4 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=5 ? "checked" :""}"></span>
                 </div> 
     
-                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct()">View Product</button></span>
+                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct(${item.id},'footwear')">View Product</button></span>
     
     
           </div>
           
       </div>`;
-        });
+        }).join('');
     });
 }
 
@@ -181,20 +214,20 @@ function getElectronicsList() {
               <h2>${item.name}</h2>
               <h4>Rs ${item.price}</h4>
               <div class="rate">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
+              <span class="fa fa-star ${item.rating>=1 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=2 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=3 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=4 ? "checked" :""}"></span>
+              <span class="fa fa-star ${item.rating>=5 ? "checked" :""}"></span>
                 </div> 
     
-                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct()">View Product</button></span>
+                <span> <button onclick="addToCart()">Add to Cart</button><button class="view" onclick="viewProduct(${item.id},'electronics')">View Product</button></span>
     
     
           </div>
           
       </div>`;
-        });
+        }).join('');
     });
 }
 

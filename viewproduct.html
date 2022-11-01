@@ -11,7 +11,7 @@
 
     </head>
 
-    <body>
+    <body onload="fetchParams()">
         
           
           <div class="navbar">
@@ -45,12 +45,13 @@
             
             <div class="main ">
                 <div class="card">
-                    <h1>Tailored Jeans</h1>
+                    <h1 id="name"></h1>
+                    <div id="rating"></div>
                     <div id="viewproduct">
                         
-                        <img src="Images/Women/jeans_blue.png" alt="Denim Jeans" style="width:100%">
+                        <img id="image" src="" alt="" style="width:100%">
                         
-                        <p class="price">$19.99</p>
+                        <p class="price" id="price"></p>
                         <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                         <p><button>Add to Cart</button></p>
                 </div>
@@ -69,7 +70,7 @@
           </div>
         
         
-        <!-- <script src="index.js" async></script> -->
+        <script src="index.js" async></script>
     </body>
     
     
