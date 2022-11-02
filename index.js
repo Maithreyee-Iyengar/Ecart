@@ -25,9 +25,10 @@ function fetchParams ()
               //console.log(data)
               console.log(data[id-1]);
               document.getElementById("name").innerHTML = data[id-1].name;
-              document.getElementById("rating").innerHTML = data[id-1].rating;
+              // document.getElementById("rating").innerHTML = data[id-1].rating;
               document.getElementById("price").innerHTML = data[id-1].price;
               document.getElementById("image").setAttribute("src",data[id-1].image);
+              console.log(document.getElementById("image").setAttribute("src",data[id-1].image))
               document.getElementById("image").setAttribute("alt",data[id-1].name);
 
 

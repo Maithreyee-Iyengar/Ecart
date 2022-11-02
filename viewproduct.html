@@ -16,11 +16,12 @@
           
           <div class="navbar">
             <div>
+              <a id="categories" onclick="categories()" >MENU</a>
                 <!-- <span><input type="text" placeholder="Search Products" id="search"><img onclick="search()" id="searchImg" src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/></span> -->
                 <span><button id="btn2" onclick="cart()"><strong><i class="material-icons">shopping_cart</i>(<span><input type="text" id="inc" value="0"></span>)</strong></button></span>
                 <a onclick="profile()"><img src="Images/profile.png" alt="Profile" id="profile"></a>
             </div>
-            <a id="categories" onclick="categories()" >MENU</a>
+            
             
           </div>
         
@@ -28,14 +29,14 @@
         <div class="row">
             <div class="side">
                 <div id="list-items" >
-                    <ul>
+                  <ul>
                     <li class="head">CATEGORIES</li>
                     <li ><a href="men.html" class="list">MEN'S CLOTHING</a></li>
                     <li><a href="women.html"> WOMEN'S CLOTHING </a></li>
                     <li><a href="electronics.html"> ELECTRONICS </a></li>
                     <li><a href="footwear.html"> FOOTWEAR </a></li>
-                </ul>
-                 </div>
+                  </ul>
+                </div>
               <h3>FILTERS</h3>
               <p></p>
               <div class="fakeimg" >Price Range : <span><input type="number" placeholder="Min" min="199"></span> - <span><input type="number" placeholder="Max"></span></div><br>
@@ -44,24 +45,73 @@
             </div>
             
             <div class="main ">
-                <div class="card">
-                    <h1 id="name"></h1>
-                    <div id="rating"></div>
-                    <div id="viewproduct">
-                        
-                        <img id="image" src="" alt="" style="width:100%">
-                        
-                        <p class="price" id="price"></p>
-                        <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
-                        <p><button>Add to Cart</button></p>
-                </div>
+                <div class="wrapper">
+                  <div class="product-img">
+                    <img id="image" src="" alt="" style="width:100%">
+                  </div>
+                    <div class="product-info">
+                      <div id="product-text">
+                        <h1 id="name"></h1><br>
+                        <p id=></p>
+                          <!-- <img id="image" src="" alt="" style="width:100%"> -->
+                          
+                          <h5 > Rs <span class="price" id="price"> </span></h5>
+                          <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
+                          <span><button>Quantity 
+                            <select>
+                            <!--hidden first option -->
+                            <option value="1" selected="selected" hidden>1</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                          </select></button></span>
+                          
+                          <button >Size <select>
+                            <!--hidden first option -->
+                            <option value="S" selected="selected" hidden>S</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            
+                          </select></button>
+                          <span><button style="width:200px ;margin-left:20px">Add to Cart</button></span>
+                      </div>
+                   </div>
                 
                 </div>
+              </div>
+                
+
+
+
+
+  <!-- <div class="wrapper">
+    <div class="product-img">
+       <img src="http://bit.ly/2tMBBTd" height="420" width="327"> 
+      <img id="image" src="" alt="" style="width:100%" >
+    </div>
+    <div class="product-info">
+      <div class="product-text">
+        <h1 id="name"></h1>
+        
+        <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
+      </div>
+      <div class="product-price-btn">
+        <p class="price" id="price">Rs</p>
+        <button type="button">Add to Cart</button>
+      </div>
+    </div>
+  </div> -->
+
+
               
             </div>
-            </div>
-            
-          </div>
+           
           <br>
           
           <br>

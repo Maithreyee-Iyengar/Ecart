@@ -5,61 +5,74 @@
         "price": 599,
         "rating": "4",
         "image": "Images/Men/BlackPrinted.png",
-        "category": "mens"
+        "category": "mens",
+        "description": ""
     },
     {
-        "id":"2",
+        "id":"22",
 
         "name": "Daikin AC 1.5 ton 5 star inverter",
         "price": 43500,
         "rating": "2",
         "image": "Images/Electronics/ac.png",
-        "category": "electronics"
+        "category": "electronics",
+        "description": ""
+
     },
     {
-        "id":"3",
+        "id":"11",
 
         "name": "Women Black Leggins",
         "price": 999,
         "rating": "2",
         "image": "Images/Women/leggings.png",
-        "category": "womens"
+        "category": "womens",
+        "description": ""
+
     },
     {
-        "id":"4",
+        "id":"19",
 
         "name": "Blue Ankle socks",
         "price": 199,
         "rating": "2",
         "image": "Images/Footwear/ankleSocks.png",
-        "category": "footwear"
+        "category": "footwear",
+        "description": ""
+
     }
     ,
     {
-        "id":"5",
+        "id":"24",
         "name": "Boat Headphones - Wired",
         "price": 3499,
         "rating": "4",
         "image": "Images/Electronics/headphone.png",
-        "category": "electronics"
+        "category": "electronics",
+        "description": ""
+
     },
     {
-        "id":"6",
+        "id":"20",
 
         "name": "Red White sneakers",
         "price": 1599,
         "rating": "2",
         "image": "Images/Footwear/sneakers.png",
-        "category": "footwear"
+        "category": "footwear",
+        "description": ""
+
     },
     {
-        "id":"7",
+        "id":"15",
 
         "name": "Blue Pencil Jeans",
         "price": 599,
         "rating": "2",
         "image": "Images/Women/jeans_blue.png",
-        "category": "womens"
+        "category": "womens",
+        "description": ""
+
     },
     {
         "id":"8",
@@ -68,7 +81,9 @@
         "price": 2599,
         "rating": "2",
         "image": "Images/Men/leather_jacket_black.png",
-        "category": "mens"
+        "category": "mens",
+        "description": ""
+
     }
 
 ]

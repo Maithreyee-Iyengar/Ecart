@@ -1,4 +1,4 @@
-.card {
+/* .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 500px;
   height: 500px;
@@ -49,4 +49,84 @@ h1 {
   width: 100%;
   font-size: 18px;
   
+} */
+
+
+
+.wrapper {
+  height: 420px;
+  width: 700px;
+  margin: 50px auto;
+  border-radius: 7px 7px 7px 7px;
+  /* VIA CSS MATIC https://goo.gl/cIbnS */
+  -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
 }
+
+.product-img {
+  float: left;
+  height: 420px;
+  width: 327px;
+}
+
+
+
+.product-info {
+  float: left;
+  height: 420px;
+  width: 350px;
+  border-radius: 0 7px 10px 7px;
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+.product-text p {
+  height: 125px;
+  margin: 0 0 0 38px;
+  font-family: 'Playfair Display', serif;
+  color: #8d8d8d;
+  line-height: 1.7em;
+  font-size: 15px;
+  font-weight: lighter;
+  overflow: hidden;
+}
+
+
+
+
+
+span {
+  display: inline-block;
+  height: 50px;
+  font-family: 'Suranna', serif;
+  font-size: 34px;
+}
+
+
+#image {
+  height: 300px;
+  margin-top: 30px;
+  
+}
+button{
+  border-radius: 0px;
+  background-color: #38959B;
+  color: #ffffff;
+  border: 1px solid black;
+  height: 30px;
+  width: 120px;
+  cursor: pointer;
+  }
+  h1{
+    color: #38959B;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
