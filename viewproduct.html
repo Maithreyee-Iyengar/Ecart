@@ -58,7 +58,7 @@
                           <h5 > Rs <span class="price" id="price"> </span></h5>
                           <p>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</p>
                           <span><button>Quantity 
-                            <select>
+                            <select id="select" onchange="onChange()">
                             <!--hidden first option -->
                             <option value="1" selected="selected" hidden>1</option>
                             <option value="1">1</option>
@@ -79,7 +79,10 @@
                             <option value="XL">XL</option>
                             
                           </select></button>
-                          <span><button style="width:200px ;margin-left:20px">Add to Cart</button></span>
+                          <span><div id="cart">
+
+                          </div></span>
+                          
                       </div>
                    </div>
                 
