@@ -23,13 +23,21 @@ function fetchParams ()
               return result.json();
             }).then((data)=>{
               //console.log(data)
-              console.log(data[id-1]);
-              document.getElementById("name").innerHTML = data[id-1].name;
-              // document.getElementById("rating").innerHTML = data[id-1].rating;
-              document.getElementById("price").innerHTML = data[id-1].price;
-              document.getElementById("image").setAttribute("src",data[id-1].image);
-              console.log(document.getElementById("image").setAttribute("src",data[id-1].image))
-              document.getElementById("image").setAttribute("alt",data[id-1].name);
+              let index=0;
+              for(let i=0;i<data.length;i++)
+              {
+                if (data[i].id==id)
+                {
+                    index = i;
+                }
+              }
+              console.log(data[index]);
+              document.getElementById("name").innerHTML = data[index].name;
+              // document.getElementById("rating").innerHTML = data[index].rating;
+              document.getElementById("price").innerHTML = data[index].price;
+              document.getElementById("image").setAttribute("src",data[index].image);
+              console.log(document.getElementById("image").setAttribute("src",data[index].image))
+              document.getElementById("image").setAttribute("alt",data[index].name);
 
 
 
