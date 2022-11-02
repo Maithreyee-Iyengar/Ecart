@@ -4,7 +4,10 @@ var subTotal ;
 var cart =[];
 
 
-
+function cart() {
+  console.log("Hello !");
+  location.href = "cart.html";
+}
 
 
 function profile() {
@@ -47,7 +50,7 @@ function fetchParams() {
       document.getElementById("image").setAttribute("alt", data[index].name);
        const stringifiedObj = JSON.stringify(data[index])
        console.log(stringifiedObj)
-      document.getElementById("cart").innerHTML = `<button style="width:200px ;margin-left:20px" onclick="addToCart(${stringifiedObj})">Add to Cart</button>`;
+      document.getElementById("cart").innerHTML = `<button style="width:200px ;margin-left:20px" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
       
      
     });
