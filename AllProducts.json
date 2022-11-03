@@ -1,0 +1,223 @@
+[
+    {
+        "id":"1",
+        "name": "Black Printed T-shirt",
+        "price": 599,
+        "rating": "4",
+        "image": "Images/Men/BlackPrinted.png",
+        "category": "mens"
+    },
+    {
+        "id":"2",
+        "name": "Aquablue T-shirt",
+        "price": 499,
+        "rating": "4",
+        "image": "Images/Men/T2.png",
+        "category": "mens"
+    },
+    {
+        "id":"3",
+        "name": "Blue V-Neck T-shirt",
+        "price": 599,
+        "rating": "4",
+        "image": "Images/Men/BlueT.png",
+        "category": "mens"
+    },
+    {
+        "id":"4",
+        "name": "Yellow printed T-shirt",
+        "price": 699,
+        "rating": "4",
+        "image": "Images/Men/YellowPrinted.png",
+        "category": "mens"
+    },
+    {
+        "id":"5",
+        "name": "Men's Blue Jeans",
+        "price": 1699,
+        "rating": "4",
+        "image": "Images/Men/jeans_blue.png",
+        "category": "mens"
+    },
+    {
+        "id":"6",
+        "name": "Blue Stripe Half sleeve shirt",
+        "price": 799,
+        "rating": "4",
+        "image": "Images/Men/Shirt_Stripe.png",
+        "category": "mens"
+    },
+    {
+        "id":"7",
+        "name": "Tie",
+        "price": 199,
+        "rating": "4",
+        "image": "Images/Men/tie.png",
+        "category": "mens"
+    },
+    {
+        "id":"8",
+        "name": "Brown Leather Jacket",
+        "price": 2599,
+        "rating": "2",
+        "image": "Images/Men/leather_jacket_black.png",
+        "category": "mens"
+    },
+    {
+        "id":"9",
+        "name": "Zipped Learher Jacket",
+        "price": 2500,
+        "rating": "4",
+        "image": "Images/Women/leather_jacket_zipped.png",
+        "category": "womens"
+    },
+    {
+        "id":"10",
+        "name": "Red Gown",
+        "price": 2799,
+        "rating": "4",
+        "image": "Images/Women/Gown.jpg",
+        "category": "womens"
+    },
+    {
+        "id":"11",
+        "name": "Women Black Leggins",
+        "price": 999,
+        "rating": "2",
+        "image": "Images/Women/leggings.png",
+        "category": "womens"
+    },
+    {
+        "id":"12",
+        "name": "Checked Red Shirt Dress",
+        "price": 1499,
+        "rating": "4",
+        "image": "Images/Women/ShirtDress.png",
+        "category": "womens",
+        "description": ""
+
+    },
+    {
+        "id":"13",
+        "name": "Orange printed T-shirt",
+        "price": 499,
+        "rating": "4",
+        "image": "Images/Women/RedPrinted.png",
+        "category": "womens",
+        "description": ""
+
+    },
+    {
+        "id":"14",
+        "name": "Yellow Hoodie",
+        "price": 1499,
+        "rating": "4",
+        "image": "Images/Women/Hoodie_yellow.png",
+        "category": "womens",
+        "description": ""
+
+    },
+    {
+        "id":"15",
+        "name": "Blue Pencil Jeans",
+        "price": 599,
+        "rating": "2",
+        "image": "Images/Women/jeans_blue.png",
+        "category": "womens",
+        "description": ""
+
+    },
+    {
+        "id":"16",
+        "name": "Black Hoodie",
+        "price": 1499,
+        "rating": "2",
+        "image": "Images/Women/Hoodie_black.png",
+        "category": "womens",
+        "description": ""
+
+    },
+    {
+        "id":"17",
+        "name": "Red Louboutin",
+        "price": 2599,
+        "rating": "4",
+        "image": "Images/Footwear/louboutin_red.png",
+        "category": "footwear",
+        "description": ""
+
+    },
+    {
+        "id":"18",
+        "name": "Formal Shoes Men",
+        "price": 1299,
+        "rating": "4",
+        "image": "Images/Footwear/shoes_formal.png",
+        "category": "footwear",
+        "description": ""
+
+    },
+    {
+        "id":"19",
+        "name": "Blue Ankle socks",
+        "price": 199,
+        "rating": "2",
+        "image": "Images/Footwear/ankleSocks.png",
+        "category": "footwear",
+        "description": ""
+
+    },
+    {
+        "id":"20",
+        "name": "Red White sneakers",
+        "price": 1599,
+        "rating": "2",
+        "image": "Images/Footwear/sneakers.png",
+        "category": "footwear",
+        "description": ""
+
+    },
+    {
+        "id":"21",
+        "name": "Nikon Camera",
+        "price": 15499,
+        "rating": "4",
+        "image": "Images/Electronics/camera.png",
+        "category": "electronics",
+        "description": ""
+
+    },
+    {
+        "id":"22",
+        "name": "Daikin AC 1.5 ton 5 star inverter",
+        "price": 43500,
+        "rating": "2",
+        "image": "Images/Electronics/ac.png",
+        "category": "electronics",
+        "description": ""
+
+    },
+    {
+        "id":"23",
+        "name": "Iphone 6s",
+        "price": 46699,
+        "rating": "2",
+        "image": "Images/Electronics/iphone.png",
+        "category": "electronics",
+        "description": ""
+
+    },
+    {
+        "id":"24",
+        "name": "Boat Headphones - Wired",
+        "price": 3499,
+        "rating": "4",
+        "image": "Images/Electronics/headphone.png",
+        "category": "electronics",
+        "description": ""
+
+    }
+
+
+
+]

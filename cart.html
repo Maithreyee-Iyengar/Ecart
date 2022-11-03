@@ -19,6 +19,26 @@
         position: unset !important;
         width: 40% !important;
     }
+    .last{
+        border-radius: 0px;
+  background-color: #38959B;
+  color: #ffffff;
+  border: 1px solid black;
+  height: 30px;
+  width: 120px;
+  cursor: pointer;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+    }
+    .div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 </style>
     <body>
       <div class="navbar">
@@ -34,6 +54,11 @@
       </div> 
 <br>
         <div id="cartlist" class="product"></div>
+        <div class="div">
+            <span ><button class="last" id="clear" onclick="clearCart()">Clear Cart</button</span>
+            <span ><button  class="last" id="checkout" onclick="checkout()">Checkout</button></span>
+        </div>
+
     </body>
     <script src="index.js" async></script>
   </html>

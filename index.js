@@ -98,9 +98,9 @@ function categories() {
   }
 }
 
-
+var cartitems = [];
 function addToCart(product) {
-  var cartitems = []
+  
   var cartproduct = product
   cartproduct.quantity = Number(quantity)
   if (localStorage.getItem("cart") != null){
@@ -142,9 +142,13 @@ function getCartProducts() {
     return `<div class='container'><img src=${item.image} alt="" />
             <div class="productDetails">
                 <h2>${item.name}</h2>
-                <h4>Rs ${item.price}</h4>
                 <h3>Qty - ${item.quantity}<h3>
-            </div></div>`
+                <h4>Rs ${item.price * item.quantity}</h4>
+                
+            </div>
+            
+            </div>
+            `
   })
 }
 
@@ -418,3 +422,15 @@ const prevPage = () => {
   getFootwearList();
   getElectronicsList();
 };
+
+
+function  clearCart(){
+console.log("clearing");
+cartitems=[];
+
+getCartProducts()
+}
+
+function checkout(){
+
+}
