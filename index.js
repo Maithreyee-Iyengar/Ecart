@@ -1,13 +1,13 @@
 //document.getElementsByTagName("h1")[0].innerHTML="Good Bye!";
 var quantity = 1;
-var subTotal ;
-var cart =[];
+var subTotal;
+var cart = [];
 
-if (JSON.parse(localStorage.getItem("cart")) != null){
-var cartnum = JSON.parse(localStorage.getItem("cart")).length;
-document.getElementById('inc').value = cartnum
-}else{
-  document.getElementById('inc').value = 0
+if (JSON.parse(localStorage.getItem("cart")) != null) {
+  var cartnum = JSON.parse(localStorage.getItem("cart")).length;
+  document.getElementById("inc").value = cartnum;
+} else {
+  document.getElementById("inc").value = 0;
 }
 
 function profile() {
@@ -48,22 +48,24 @@ function fetchParams() {
         document.getElementById("image").setAttribute("src", data[index].image)
       );
       document.getElementById("image").setAttribute("alt", data[index].name);
-      const stringifiedObj = JSON.stringify(data[index])
-      document.getElementById("cart").innerHTML = `<button style="width:200px ;margin-left:20px" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
+      const stringifiedObj = JSON.stringify(data[index]);
+      document.getElementById(
+        "cart"
+      ).innerHTML = `<button style="width:200px ;margin-left:20px" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
     });
 }
 
-function onChange(){
+function onChange() {
   var e = document.getElementById("select");
   var value = e.value;
-  console.log(value)
+  console.log(value);
   quantity = value;
 }
 
-function search(){
+function search() {
   var input, filter, a, i, txtValue;
-  input = document.getElementById('search');
-  products = document.getElementById('products');
+  input = document.getElementById("search");
+  products = document.getElementById("products");
   filter = input.value.toUpperCase();
   console.log(filter);
 
@@ -77,7 +79,6 @@ function search(){
     }
   }
 }
-
 
 function checked(val, catType, id) {
   //location.reload();
@@ -100,12 +101,61 @@ function categories() {
 
 var cartitems = [];
 function addToCart(product) {
-  
+  var cartproduct = product;
+  cartproduct.quantity = Number(quantity);
+  if (localStorage.getItem("cart") != null) {
+    const previtems = JSON.parse(localStorage.getItem("cart"));
+    console.log(previtems);
+    function isItemAlreadyinCart(item) {
+      if (item.id == cartproduct.id) {
+        item.quantity += 1;
+        const reccuring = item;
+        const getIndex = previtems.findIndex(
+          (item) => item.id == cartproduct.id
+        );
+        previtems[getIndex] = reccuring;
+        console.log(previtems);
+        cartitems = [...previtems];
+      } else {
+        cartitems = [...previtems, cartproduct];
+      }
+    }
+    previtems.find(isItemAlreadyinCart);
+  } else {
+    cartitems = [cartproduct];
+  }
+  localStorage.setItem("cart", JSON.stringify(cartitems));
+  cartnum = JSON.parse(localStorage.getItem("cart")).length;
+  document.getElementById("inc").value = cartnum;
+  alert("Added to cart");
+}
+
+function getCartProducts() {
+  console.log("hey");
+  if (localStorage.getItem("cart") != null){
+  const cartitems = localStorage.getItem("cart");
+  console.log(JSON.parse(cartitems));
+  const cartJson = JSON.parse(cartitems);
+  document.getElementById("cartlist").innerHTML = cartJson.map((item) => {
+    const jsonitem = JSON.stringify(item)
+    return `<div class='container'><img src=${item.image} alt="" />
+            <div class="productDetails">
+                <h2>${item.name}</h2>
+                <h4>Rs ${item.price * item.quantity}</h4>
+                <h3 class="quantityContainer"><button onclick='decrement(${jsonitem})'> - </button><span> Qty( ${item.quantity} )</span> <button onclick='increment(${jsonitem})'> + </button><h3>
+            </div></div>`
+  });
+}
+else{
+  document.getElementById("cartlist").innerHTML = "<div></div>"
+
+
+}
+}
+function increment(product){
   var cartproduct = product
-  cartproduct.quantity = Number(quantity)
   if (localStorage.getItem("cart") != null){
   const previtems = JSON.parse(localStorage.getItem("cart"))
-  console.log(previtems);
   function isItemAlreadyinCart(item) {
     if (item.id == cartproduct.id){
       item.quantity += 1
@@ -117,49 +167,48 @@ function addToCart(product) {
       console.log(previtems);
       cartitems = [...previtems]
     }
-    else{
-      cartitems = [...previtems,cartproduct]
+  }
+  previtems.find(isItemAlreadyinCart)
+  localStorage.setItem("cart" , JSON.stringify(cartitems));
+  getCartProducts()
+}
+}
+function decrement(product){
+  var cartproduct = product
+  if (localStorage.getItem("cart") != null){
+  const previtems = JSON.parse(localStorage.getItem("cart"))
+  function isItemAlreadyinCart(item) {
+    if (item.id == cartproduct.id){
+      item.quantity -= 1
+      if (item.quantity==0){
+        if (getIndex > -1) { // only splice array when item is found
+          array.splice(getIndex, 1); // 2nd parameter means remove one item only
+        }
+      }
+      const reccuring = item
+      const getIndex = previtems.findIndex(
+        (item) => item.id == cartproduct.id
+      )
+      previtems[getIndex] = reccuring
+      console.log(previtems);
+      cartitems = [...previtems]
     }
   }
   previtems.find(isItemAlreadyinCart)
-  
-  }
-  else{
-  cartitems = [cartproduct]
-  }
   localStorage.setItem("cart" , JSON.stringify(cartitems));
-  cartnum = JSON.parse(localStorage.getItem("cart")).length
-  document.getElementById('inc').value = cartnum
-  alert('Added to cart')
-}
-
-function getCartProducts() {
-  console.log('hey');
-  const cartitems = localStorage.getItem("cart");
-  console.log(JSON.parse(cartitems));
-  const cartJson = JSON.parse(cartitems)
-  document.getElementById("cartlist").innerHTML = cartJson.map((item)=> {
-    return `<div class='container'><img src=${item.image} alt="" />
-            <div class="productDetails">
-                <h2>${item.name}</h2>
-                <h3>Qty - ${item.quantity}<h3>
-                <h4>Rs ${item.price * item.quantity}</h4>
-                
-            </div>
-            
-            </div>
-            `
-  })
-}
-
-function gotocart() {
-  location.href = "cart.html";
   getCartProducts()
 }
+}
+function gotocart() {
+  location.href = "cart.html";
+  getCartProducts();
+}
 console.log(window.location.hash);
-if (window.location.hash === 'cart.html') {
-    getCartProducts();
-  }
+if (window.location.hash === "cart.html") {
+  getCartProducts();
+}
+
+
 // let search = document.getElementById("searchImg");
 // search = ()=>{
 //    window.open("https://www.google.com/search?q=border+style+css&oq=&aqs=chrome.0.35i39i362l8.80674876j0j15&sourceid=chrome&ie=UTF-8");
@@ -423,14 +472,12 @@ const prevPage = () => {
   getElectronicsList();
 };
 
+function clearCart() {
+  console.log("clearing");
+  cartitems = [];
+  localStorage.clear();
 
-function  clearCart(){
-console.log("clearing");
-cartitems=[];
-
-getCartProducts()
+  getCartProducts();
 }
 
-function checkout(){
-
-}
+function checkout() {}

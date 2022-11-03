@@ -13,15 +13,32 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 100%;
+        width: 100% !important;
+        /* cursor:none !important; */
+    }
+    .product:hover{
+        background: none;
     }
     .container{
         position: unset !important;
         width: 40% !important;
     }
-    .last{
+    #clear{
         border-radius: 0px;
-  background-color: #38959B;
+  background-color: #b20404;
+  color: #ffffff;
+  border: 1px solid black;
+  height: 30px;
+  width: 120px;
+  cursor: pointer;
+  display: inline;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+    }
+    #checkout{
+        border-radius: 0px;
+  background-color: #2b9700;
   color: #ffffff;
   border: 1px solid black;
   height: 30px;
@@ -39,6 +56,16 @@
         justify-content: center;
         width: 100%;
     }
+    #total{
+        color: black;
+        font-size: larger;
+        font-weight: bolder;
+        display: inline-block;
+        align-items: center;
+        justify-content: center;
+        width: 20%;
+        margin: 5px;
+    }
 </style>
     <body>
       <div class="navbar">
@@ -54,9 +81,13 @@
       </div> 
 <br>
         <div id="cartlist" class="product"></div>
+        <div style="width: 50%;margin-left:450px">
+            <span id="total" >Total: </span><span>76576</span>
+
+        </div>
         <div class="div">
-            <span ><button class="last" id="clear" onclick="clearCart()">Clear Cart</button</span>
-            <span ><button  class="last" id="checkout" onclick="checkout()">Checkout</button></span>
+            <span ><button id="clear" onclick="clearCart()">Clear Cart</button</span>
+            <span ><button  id="checkout" onclick="checkout()">Checkout</button></span>
         </div>
 
     </body>

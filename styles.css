@@ -262,7 +262,7 @@ color: #ffffff;
 border: 1px solid black;
 height: 30px;
 width: 120px;
-cursor: pointer;
+/* cursor: pointer; */
 }
 .productDetails >span> button:hover{
 background-color: #F2CF51;
@@ -270,6 +270,27 @@ color:#38959B;
 font-weight: bolder;
 
 }
+
+.productDetails button
+{
+  border-radius: 20px;
+  padding: 5px;
+  border:0px ;
+  width: 40px;
+  cursor: pointer;
+  
+}
+.quantityContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 20px;
+  width: 180px;
+  background-color: #aaa;
+color: black;
+
+}
+
 .pagination {
 display: inline-block;
 text-align: center;
