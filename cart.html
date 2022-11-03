@@ -66,6 +66,10 @@
         width: 20%;
         margin: 5px;
     }
+    #Ptotal{
+        font-size: larger;
+        color: #b20404;
+    }
 </style>
     <body>
       <div class="navbar">
@@ -82,7 +86,7 @@
 <br>
         <div id="cartlist" class="product"></div>
         <div style="width: 50%;margin-left:450px">
-            <span id="total" >Total: </span><span>76576</span>
+            <span id="total" >Total: </span><strong><span>Rs </span><span id="Ptotal"></span></strong>
 
         </div>
         <div class="div">
@@ -91,5 +95,8 @@
         </div>
 
     </body>
+    <script type="text/javascript"
+          src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
     <script src="index.js" async></script>
   </html>

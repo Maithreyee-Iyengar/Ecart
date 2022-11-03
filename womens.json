@@ -11,7 +11,7 @@
         "id":"10",
         "name": "Red Gown",
         "price": 2799,
-        "rating": "4",
+        "rating": "3",
         "image": "Images/Women/Gown.jpg",
         "category": "womens"
     },
@@ -27,7 +27,7 @@
         "id":"12",
         "name": "Checked Red Shirt Dress",
         "price": 1499,
-        "rating": "4",
+        "rating": "5",
         "image": "Images/Women/ShirtDress.png",
         "category": "womens",
         "description": ""
@@ -37,7 +37,7 @@
         "id":"13",
         "name": "Orange printed T-shirt",
         "price": 499,
-        "rating": "4",
+        "rating": "5",
         "image": "Images/Women/RedPrinted.png",
         "category": "womens",
         "description": ""
@@ -57,7 +57,7 @@
         "id":"15",
         "name": "Blue Pencil Jeans",
         "price": 599,
-        "rating": "2",
+        "rating": "3",
         "image": "Images/Women/jeans_blue.png",
         "category": "womens",
         "description": ""
@@ -67,7 +67,7 @@
         "id":"16",
         "name": "Black Hoodie",
         "price": 1499,
-        "rating": "2",
+        "rating": "5",
         "image": "Images/Women/Hoodie_black.png",
         "category": "womens",
         "description": ""

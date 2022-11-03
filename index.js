@@ -1,4 +1,5 @@
 //document.getElementsByTagName("h1")[0].innerHTML="Good Bye!";
+// document.getElementById("Ptotal").innerHTML=0;
 var quantity = 1;
 var subTotal;
 var cart = [];
@@ -51,7 +52,7 @@ function fetchParams() {
       const stringifiedObj = JSON.stringify(data[index]);
       document.getElementById(
         "cart"
-      ).innerHTML = `<button style="width:200px ;margin-left:20px" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
+      ).innerHTML = `<button style="width:200px ;" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
     });
 }
 
@@ -132,72 +133,76 @@ function addToCart(product) {
 
 function getCartProducts() {
   console.log("hey");
-  if (localStorage.getItem("cart") != null){
-  const cartitems = localStorage.getItem("cart");
-  console.log(JSON.parse(cartitems));
-  const cartJson = JSON.parse(cartitems);
-  document.getElementById("cartlist").innerHTML = cartJson.map((item) => {
-    const jsonitem = JSON.stringify(item)
-    return `<div class='container'><img src=${item.image} alt="" />
+  if (localStorage.getItem("cart") != null) {
+    const cartitems = localStorage.getItem("cart");
+    console.log(JSON.parse(cartitems));
+    const cartJson = JSON.parse(cartitems);
+    document.getElementById("cartlist").innerHTML = cartJson.map((item) => {
+      const jsonitem = JSON.stringify(item);
+
+      return `<div class='container'><img src=${item.image} alt="" />
             <div class="productDetails">
                 <h2>${item.name}</h2>
                 <h4>Rs ${item.price * item.quantity}</h4>
-                <h3 class="quantityContainer"><button onclick='decrement(${jsonitem})'> - </button><span> Qty( ${item.quantity} )</span> <button onclick='increment(${jsonitem})'> + </button><h3>
-            </div></div>`
-  });
-}
-else{
-  document.getElementById("cartlist").innerHTML = "<div></div>"
-
-
-}
-}
-function increment(product){
-  var cartproduct = product
-  if (localStorage.getItem("cart") != null){
-  const previtems = JSON.parse(localStorage.getItem("cart"))
-  function isItemAlreadyinCart(item) {
-    if (item.id == cartproduct.id){
-      item.quantity += 1
-      const reccuring = item
-      const getIndex = previtems.findIndex(
-        (item) => item.id == cartproduct.id
-      )
-      previtems[getIndex] = reccuring
-      console.log(previtems);
-      cartitems = [...previtems]
-    }
+                <h3 class="quantityContainer"><button onclick='decrement(${jsonitem})'> - </button><span> Qty( ${
+        item.quantity
+      } )</span> <button onclick='increment(${jsonitem})'> + </button><h3>
+            </div></div>`;
+    });
+  } else {
+    document.getElementById("cartlist").innerHTML = "<div></div>";
   }
-  previtems.find(isItemAlreadyinCart)
-  localStorage.setItem("cart" , JSON.stringify(cartitems));
-  getCartProducts()
 }
-}
-function decrement(product){
-  var cartproduct = product
-  if (localStorage.getItem("cart") != null){
-  const previtems = JSON.parse(localStorage.getItem("cart"))
-  function isItemAlreadyinCart(item) {
-    if (item.id == cartproduct.id){
-      item.quantity -= 1
-      if (item.quantity==0){
-        if (getIndex > -1) { // only splice array when item is found
-          array.splice(getIndex, 1); // 2nd parameter means remove one item only
-        }
+function increment(product) {
+  var cartproduct = product;
+  if (localStorage.getItem("cart") != null) {
+    const previtems = JSON.parse(localStorage.getItem("cart"));
+    function isItemAlreadyinCart(item) {
+      if (item.id == cartproduct.id) {
+        item.quantity += 1;
+        const reccuring = item;
+        const getIndex = previtems.findIndex(
+          (item) => item.id == cartproduct.id
+        );
+        previtems[getIndex] = reccuring;
+        console.log(previtems);
+        cartitems = [...previtems];
       }
-      const reccuring = item
-      const getIndex = previtems.findIndex(
-        (item) => item.id == cartproduct.id
-      )
-      previtems[getIndex] = reccuring
-      console.log(previtems);
-      cartitems = [...previtems]
     }
+    previtems.find(isItemAlreadyinCart);
+    localStorage.setItem("cart", JSON.stringify(cartitems));
+    getCartProducts();
+    getTotal();
   }
-  previtems.find(isItemAlreadyinCart)
-  localStorage.setItem("cart" , JSON.stringify(cartitems));
-  getCartProducts()
+  
 }
+function decrement(product) {
+  var cartproduct = product;
+  if (localStorage.getItem("cart") != null) {
+    const previtems = JSON.parse(localStorage.getItem("cart"));
+    function isItemAlreadyinCart(item) {
+      if (item.id == cartproduct.id) {
+        item.quantity -= 1;
+        if (item.quantity == 0) {
+          if (getIndex > -1) {
+            // only splice array when item is found
+            array.splice(getIndex, 1); // 2nd parameter means remove one item only
+          }
+        }
+        const reccuring = item;
+        const getIndex = previtems.findIndex(
+          (item) => item.id == cartproduct.id
+        );
+        previtems[getIndex] = reccuring;
+        console.log(previtems);
+        cartitems = [...previtems];
+      }
+    }
+    previtems.find(isItemAlreadyinCart);
+    localStorage.setItem("cart", JSON.stringify(cartitems));
+    getCartProducts();
+    getTotal();
+  }
 }
 function gotocart() {
   location.href = "cart.html";
@@ -208,6 +213,28 @@ if (window.location.hash === "cart.html") {
   getCartProducts();
 }
 
+function getTotal() {
+  let total =  JSON.parse(localStorage.getItem("cart"));
+  console.log("total is " + total);
+  let price =0;
+  for(let i=0;i<total.length;i++)
+  {
+    if(total[i].quantity>1)
+    {
+      console.log(total[i].quantity);
+      price = price + total[i].price * total[i].quantity
+    }
+    else{
+      price = price + total[i].price;
+    }
+  }
+  console.log(price)
+  document.getElementById("Ptotal").innerHTML = price;
+
+}
+
+// const total = JSON.parse(localStorage.getItem("cart" ));
+// console.log(total);
 
 // let search = document.getElementById("searchImg");
 // search = ()=>{
@@ -215,12 +242,31 @@ if (window.location.hash === "cart.html") {
 // }
 let pageNoLower = 0;
 let pageNoUpper = 4;
+const nextPage = () => {
+  pageNoLower += 4;
+  pageNoUpper += 4;
+  getProductsList();
+  getMensList();
+  getWomensList();
+  getFootwearList();
+  getElectronicsList();
+};
+const prevPage = () => {
+  pageNoLower = 0;
+  pageNoUpper = 4;
+  getProductsList();
+  getMensList();
+  getWomensList();
+  getFootwearList();
+  getElectronicsList();
+};
 function getProductsList() {
   fetch("./product.json")
     .then((result) => {
       return result.json();
     })
     .then((data) => {
+      
       document.getElementById("list").innerHTML = data
         .slice(pageNoLower, pageNoUpper)
         .map((item) => {
@@ -407,8 +453,10 @@ function getElectronicsList() {
       return result.json();
     })
     .then((data) => {
+      
       document.getElementById("electronics").innerHTML = data
         .slice(pageNoLower, pageNoUpper)
+
         .map((item) => {
           return `<div class="product" id=${item.id}>
           <img src=${item.image} alt="" />
@@ -451,33 +499,51 @@ getMensList();
 getWomensList();
 getFootwearList();
 getElectronicsList();
+getTotal();
 getCartProducts();
 
-const nextPage = () => {
-  pageNoLower += 4;
-  pageNoUpper += 4;
-  getProductsList();
-  getMensList();
-  getWomensList();
-  getFootwearList();
-  getElectronicsList();
-};
-const prevPage = () => {
-  pageNoLower = 0;
-  pageNoUpper = 4;
-  getProductsList();
-  getMensList();
-  getWomensList();
-  getFootwearList();
-  getElectronicsList();
-};
+
 
 function clearCart() {
   console.log("clearing");
   cartitems = [];
   localStorage.clear();
-
+  document.getElementById("Ptotal").innerHTML="";
   getCartProducts();
+  location.reload();
 }
 
-function checkout() {}
+function checkout() {
+  alert("Order Placed & Email is sent");
+  emailjs.init("Zzqg9iZVgSuzhm_fD");
+  console.log("hello");
+  let Edata = " ";
+  let price = 0;
+  let prod =  JSON.parse(localStorage.getItem("cart"));
+  for(let i=0;i<prod.length;i++)
+  {
+    if(prod[i].quantity>1)
+    {
+      price = price + prod[i].price * prod[i].quantity
+    }
+    else{
+      price = price + prod[i].price;
+    }
+    Edata = Edata.concat(`<div
+    <h1> ${prod[i].name} <br> Quantity: ${prod[i].quantity} <br> Price: Rs ${prod[i].price * prod[i].quantity}</h1>
+</div><br><br>`);
+  }
+  var templateParams = {
+    receiver: 'maithreyeeiyengar@gmail.com',
+    message: Edata,
+    from_name: 'Ecart',
+    price: price
+};
+ 
+emailjs.send('service_hvlvsuc', 'template_9hkktlq', templateParams) // serviceid , templateid ,  parameter
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+}

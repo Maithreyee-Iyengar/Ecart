@@ -125,6 +125,7 @@ button{
   height: 30px;
   width: 120px;
   cursor: pointer;
+  margin-top: 0px;
   }
   h1{
     color: #38959B;

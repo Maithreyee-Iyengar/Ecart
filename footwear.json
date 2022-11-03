@@ -3,7 +3,7 @@
         "id":"17",
         "name": "Red Louboutin",
         "price": 2599,
-        "rating": "4",
+        "rating": "5",
         "image": "Images/Footwear/louboutin_red.png",
         "category": "footwear",
         "description": ""
@@ -33,7 +33,7 @@
         "id":"20",
         "name": "Red White sneakers",
         "price": 1599,
-        "rating": "2",
+        "rating": "3",
         "image": "Images/Footwear/sneakers.png",
         "category": "footwear",
         "description": ""
