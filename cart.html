@@ -3,46 +3,37 @@
     <head>
         <title>Cart</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="profileStyle.css">
         <link rel="stylesheet" href="styles.css">
-
-
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
 <style>
-    .navbar{
-        height: 40px;
-    }
     .product{
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         width: 100%;
     }
+    .container{
+        position: unset !important;
+        width: 40% !important;
+    }
 </style>
     <body>
       <div class="navbar">
-        <div ><a href="index.html"  id="home" style="display:flex;">HOME</a>
-          <!-- <span><input type="text" placeholder="Search Products" id="search"><img onclick="search()" id="searchImg" src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/></span> -->
-          <!-- <span><button id="btn2" onclick="cart()"><strong><i class="material-icons">shopping_cart</i>(<span><input type="text" id="inc" value="0"></span>)</strong></button></span> -->
-            <!-- <a onclick="profile()"><img src="Images/profile.png" alt="Profile" id="profile"></a> -->
-        </div>
+            <div>
+                <span><input type="text" placeholder="Search Products" id="search"><img onclick="search()" id="searchImg" src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"/></span>
+                <span><a id="btn2" onclick="gotocart()"><strong><i class="material-icons">shopping_cart</i>(<span><input type="text" id="inc" value="0"></span>)</strong></a></span>
+                <a onclick="profile()"><img src="Images/profile.png" alt="Profile" id="profile"></a>
+            </div>
+            <a id="categories" href="index.html" >Home</a>
+            
+          </div>
 
       </div> 
 <br>
-
-      <div>
-
-        <div class="product">
-            <img src="" alt="" />
-            <div class="productDetails">
-                <h2>${item.name}</h2>
-                <h4>Rs ${item.price}</h4>
-    </div>
-        
-
-              
-      </div>
+        <div id="cartlist" class="product"></div>
     </body>
+    <script src="index.js" async></script>
   </html>

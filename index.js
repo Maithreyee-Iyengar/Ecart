@@ -3,12 +3,12 @@ var quantity = 1;
 var subTotal ;
 var cart =[];
 
-
-function cart() {
-  console.log("Hello !");
-  location.href = "cart.html";
+if (JSON.parse(localStorage.getItem("cart")) != null){
+var cartnum = JSON.parse(localStorage.getItem("cart")).length;
+document.getElementById('inc').value = cartnum
+}else{
+  document.getElementById('inc').value = 0
 }
-
 
 function profile() {
   //alert("Hello !");
@@ -48,11 +48,8 @@ function fetchParams() {
         document.getElementById("image").setAttribute("src", data[index].image)
       );
       document.getElementById("image").setAttribute("alt", data[index].name);
-       const stringifiedObj = JSON.stringify(data[index])
-       console.log(stringifiedObj)
+      const stringifiedObj = JSON.stringify(data[index])
       document.getElementById("cart").innerHTML = `<button style="width:200px ;margin-left:20px" onclick='addToCart(${stringifiedObj})'>Add to Cart</button>`;
-      
-     
     });
 }
 
@@ -60,9 +57,25 @@ function onChange(){
   var e = document.getElementById("select");
   var value = e.value;
   console.log(value)
-  // var text = e.options[e.selectedIndex].text;
-  // console.log(text)
-  quantity= value;
+  quantity = value;
+}
+
+function search(){
+  var input, filter, a, i, txtValue;
+  input = document.getElementById('search');
+  products = document.getElementById('products');
+  filter = input.value.toUpperCase();
+  console.log(filter);
+
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
 }
 
 
@@ -86,12 +99,63 @@ function categories() {
 }
 
 
-function addToCart(product ) {
+function addToCart(product) {
+  var cartitems = []
+  var cartproduct = product
+  cartproduct.quantity = Number(quantity)
+  if (localStorage.getItem("cart") != null){
+  const previtems = JSON.parse(localStorage.getItem("cart"))
+  console.log(previtems);
+  function isItemAlreadyinCart(item) {
+    if (item.id == cartproduct.id){
+      item.quantity += 1
+      const reccuring = item
+      const getIndex = previtems.findIndex(
+        (item) => item.id == cartproduct.id
+      )
+      previtems[getIndex] = reccuring
+      console.log(previtems);
+      cartitems = [...previtems]
+    }
+    else{
+      cartitems = [...previtems,cartproduct]
+    }
+  }
+  previtems.find(isItemAlreadyinCart)
   
-  sessionStorage.setItem("cart" , product );
-
+  }
+  else{
+  cartitems = [cartproduct]
+  }
+  localStorage.setItem("cart" , JSON.stringify(cartitems));
+  cartnum = JSON.parse(localStorage.getItem("cart")).length
+  document.getElementById('inc').value = cartnum
+  alert('Added to cart')
 }
 
+function getCartProducts() {
+  console.log('hey');
+  const cartitems = localStorage.getItem("cart");
+  console.log(JSON.parse(cartitems));
+  const cartJson = JSON.parse(cartitems)
+  document.getElementById("cartlist").innerHTML = cartJson.map((item)=> {
+    return `<div class='container'><img src=${item.image} alt="" />
+            <div class="productDetails">
+                <h2>${item.name}</h2>
+                <h4>Rs ${item.price}</h4>
+                <h3>Qty - ${item.quantity}<h3>
+            </div></div>`
+  })
+}
+
+function gotocart() {
+  location.href = "cart.html";
+  getCartProducts()
+}
+console.log(window.location.hash);
+if (window.location.hash === 'cart.html') {
+    getCartProducts();
+  }
 // let search = document.getElementById("searchImg");
 // search = ()=>{
 //    window.open("https://www.google.com/search?q=border+style+css&oq=&aqs=chrome.0.35i39i362l8.80674876j0j15&sourceid=chrome&ie=UTF-8");
@@ -107,7 +171,7 @@ function getProductsList() {
       document.getElementById("list").innerHTML = data
         .slice(pageNoLower, pageNoUpper)
         .map((item) => {
-          return `<div class="product" id=${item.id}>
+          return `<div id="products" class="product" id=${item.id}>
           <img src=${item.image} alt="" />
           <div class="productDetails">
               <h2>${item.name}</h2>
@@ -137,13 +201,9 @@ function getProductsList() {
                 item.id
               })"class="fa fa-star ${item.rating >= 5 ? "checked" : ""}"></span>
                 </div> 
-    
-                
                 <span><button class="view" onclick="viewProduct(${
                   item.id
                 },'product')">View Product</button></span>
-    
-    
           </div>
           
       </div>`;
@@ -338,6 +398,7 @@ getMensList();
 getWomensList();
 getFootwearList();
 getElectronicsList();
+getCartProducts();
 
 const nextPage = () => {
   pageNoLower += 4;
