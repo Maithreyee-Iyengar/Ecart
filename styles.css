@@ -306,6 +306,9 @@ text-decoration: none;
 text-align: center;
 }
 .footer{
+position: fixed;
+bottom: 0px;
+width: 100%;
 text-decoration: none;
 text-align: left;
 color: #38959B;
@@ -313,7 +316,12 @@ background-color: #F2CF51;
 margin-top: 0;
 padding: 20px;
 /* text-align: center; */
-
+}
+.footer a{
+  display: inline;
+}
+#searchlist{
+  padding-bottom: 50px;
 }
 #inc{
 width: 25px;

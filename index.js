@@ -63,22 +63,112 @@ function onChange() {
   quantity = value;
 }
 
-function search() {
-  var input, filter, a, i, txtValue;
+function filterprice(){
+  var min = document.getElementById("min").value
+  var max = document.getElementById("max").value
+  document.getElementById('list').style.display = "none";
+  fetch("./allproducts.json")
+    .then((result) => {
+      return result.json();
+    })
+    .then((data) => {
+      console.log(data);
+      document.getElementById("searchlist").innerHTML = data
+        .filter((Allitem) => {return (Allitem.price >= min && Allitem.price <= max)}).map((item) => {
+          console.log(item);
+          return `<div id="products" class="product" id=${item.id}>
+          <img src=${item.image} alt="" />
+          <div class="productDetails">
+              <h2>${item.name}</h2>
+              <h4>Rs ${item.price}</h4>
+              <div class="rate">
+              <span onclick ="checked(1,'product',${
+                item.id
+              })" id="1.1" class="fa fa-star ${
+            item.rating >= 1 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(2,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 2 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(3,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 3 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(4,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 4 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(5,'product',${
+                item.id
+              })"class="fa fa-star ${item.rating >= 5 ? "checked" : ""}"></span>
+                </div> 
+                <span><button class="view" onclick="viewProduct(${
+                  item.id
+                },'product')">View Product</button></span>
+          </div>
+          
+      </div>`;
+        })
+    });
+}
+
+function search(list) {
   input = document.getElementById("search");
   products = document.getElementById("products");
   filter = input.value.toUpperCase();
-  console.log(filter);
-
-  for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
+  console.log(filter,list);
+  document.getElementById(list).style.display = "none";
+  fetch("./allproducts.json")
+    .then((result) => {
+      return result.json();
+    })
+    .then((data) => {
+      console.log(data);
+      document.getElementById("searchlist").innerHTML = data
+        .filter((Allitem) => {return Allitem.name.toUpperCase().startsWith(filter)}).map((item) => {
+          console.log(item);
+          return `<div id="products" class="product" id=${item.id}>
+          <img src=${item.image} alt="" />
+          <div class="productDetails">
+              <h2>${item.name}</h2>
+              <h4>Rs ${item.price}</h4>
+              <div class="rate">
+              <span onclick ="checked(1,'product',${
+                item.id
+              })" id="1.1" class="fa fa-star ${
+            item.rating >= 1 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(2,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 2 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(3,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 3 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(4,'product',${
+                item.id
+              })" class="fa fa-star ${
+            item.rating >= 4 ? "checked" : ""
+          }"></span>
+              <span onclick ="checked(5,'product',${
+                item.id
+              })"class="fa fa-star ${item.rating >= 5 ? "checked" : ""}"></span>
+                </div> 
+                <span><button class="view" onclick="viewProduct(${
+                  item.id
+                },'product')">View Product</button></span>
+          </div>
+          
+      </div>`;
+        })
+    });
 }
 
 function checked(val, catType, id) {

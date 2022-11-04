@@ -19,7 +19,7 @@
       <div>
         <span
           ><input type="text" placeholder="Search Products" id="search" /><img
-            onclick="search()"
+            onclick="search('footwear')"
             id="searchImg"
             src="https://img.icons8.com/material-outlined/24/000000/search--v1.png"
         /></span>
@@ -64,6 +64,7 @@
 
       <div class="main">
         <div class="productList">
+          <div id="searchlist"></div>
             <div id="footwear"></div>
           
           </div>
@@ -74,7 +75,7 @@
 
     <br />
     <div class="footer">
-      <a href="index.html" class="footer">HOME</a>
+      <a href="index.html">HOME</a>
     </div>
 
     <script src="index.js" async></script>
