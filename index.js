@@ -63,11 +63,18 @@ function onChange() {
   quantity = value;
 }
 
-function filterprice(){
+function clearfilter(list){
+  document.getElementById(list).style.display = 'block';
+  document.getElementById('searchlist').style.display = 'none';
+}
+
+function filterprice(file,list){
   var min = document.getElementById("min").value
   var max = document.getElementById("max").value
-  document.getElementById('list').style.display = "none";
-  fetch("./allproducts.json")
+  document.getElementById("min").value = min
+  document.getElementById("max").value = max
+  document.getElementById(list).style.display = "none";
+  fetch(file)
     .then((result) => {
       return result.json();
     })

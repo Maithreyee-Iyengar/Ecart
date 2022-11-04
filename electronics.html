@@ -54,8 +54,10 @@
         <p></p>
         <div class="fakeimg">
           Price Range :
-          <span><input type="number" placeholder="Min" min="199" /></span> -
-          <span><input type="number" placeholder="Max" /></span>
+          <span><input type="number" id="min" placeholder="Min" min="199" /></span> -
+          <span><input type="number" id="max" placeholder="Max" /></span>
+          <button class="filterprice" onclick="filterprice('./electronics.json','electronics')">Filter</button>
+          <button onclick="clearfilter('electronics')">clear</button>
         </div>
         <br />
         
